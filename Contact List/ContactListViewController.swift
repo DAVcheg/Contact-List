@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ContactListViewController.swift
 //  Contact List
 //
 //  Created by Aleksey Dergunov on 04.03.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ContactListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
