@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +11,7 @@
         <!--Contact List-->
         <scene sceneID="wbU-ZA-ZhC">
             <objects>
-                <tableViewController id="tzC-Zq-mJP" customClass="ContactListViewController" customModule="Contact_List" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ContactListVC" id="tzC-Zq-mJP" customClass="ContactLViewController" customModule="UITableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="aWk-tT-GAb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,6 +24,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="UnY-fA-Pah" kind="show" id="FHZ-Lt-lPc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,17 +34,33 @@
                             <outlet property="delegate" destination="tzC-Zq-mJP" id="JR2-HH-g2J"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="AZn-1g-jml"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="person" catalog="system" id="AZn-1g-jml"/>
                     <navigationItem key="navigationItem" title="Contact List" id="7Jj-Rn-cnq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlC-to-amb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="233" y="775"/>
         </scene>
-        <!--Item-->
+        <!--Contact Detail View Controller-->
+        <scene sceneID="Wwb-CR-Ych">
+            <objects>
+                <viewController storyboardIdentifier="ContactDetailVC" id="UnY-fA-Pah" customClass="ContactDetailViewController" customModule="UITableViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kRY-mn-2yn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="rgO-P3-f7V"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="a6i-3r-lKs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ee8-Gv-nA8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959" y="775"/>
+        </scene>
+        <!--Contacts Full-->
         <scene sceneID="feM-2t-A6w">
             <objects>
-                <tableViewController id="Ye6-Yd-HHp" customClass="FullContentContactListViewController" customModule="Contact_List" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FullContentContactVC" id="Ye6-Yd-HHp" customClass="FullContentContactListViewController" customModule="UITableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="zkF-aK-WHL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,11 +80,11 @@
                             <outlet property="delegate" destination="Ye6-Yd-HHp" id="HTP-wj-IwO"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="znc-v4-jGh"/>
+                    <tabBarItem key="tabBarItem" title="Contacts Full" image="person.fill" catalog="system" id="znc-v4-jGh"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0f-Fj-uDH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984" y="775"/>
+            <point key="canvasLocation" x="1665" y="775"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QkJ-0h-dAe">
@@ -89,6 +109,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="6sD-eI-4tG"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P8l-ra-3TY">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -103,6 +124,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
